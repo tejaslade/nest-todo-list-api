@@ -14,4 +14,13 @@ export class TodoService {
   findAll(): Todo[] {
     return this.storage;
   }
+
+  findOne(id: number): Todo {
+    return this.storage.find((todo) => todo.id === id);
+  }
+
+  remove(id: number): void {
+    const index = this.storage.findIndex((todo: Todo) => todo.id === id);
+    this.storage.splice(index, 1);
+  }
 }
